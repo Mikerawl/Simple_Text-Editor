@@ -26,48 +26,39 @@ module.exports = () => {
     },
     plugins: [
       
-      new GenerateSW()
-  
+      new GenerateSW(),
+      
+      new InjectManifest({
+      swSrc: './src/sw.js',
+    })
+
+    module: {
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+      ],
+    },
+  };
+
+  ]
 }
 
 // TODO: and manifest file.
 
 
-module.exports = {
-  plugins: [
-    new InjectManifest({
-      swSrc: './src/sw.js',
-    })
+
+  
+    
  
 
 // TODO: Add CSS loaders and babel to webpack.
-module.exports = {
 
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-    ],
-  },
-};
 
-  module: {
-    rules: [
-      {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-        loader: 'babel-loader',
-        options: {
-        presets: ['@babel/preset-env']
-        }
-      }
-    }
-  ]
-}
+  m
 
+  
 module.exports = () => {
   return {
     mode: 'development',
@@ -82,7 +73,22 @@ module.exports = () => {
     plugins: [
       
     ],
-
+    
+    module: {
+      rules: [
+        {
+          test: /\.m?js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+          loader: 'babel-loader',
+          options: {
+          presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+  
     module: {
       rules: [
         

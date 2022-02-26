@@ -20,7 +20,7 @@ const jateDb = await openDB('jate', 1);
     const request = store.add({ name: name, home_phone: home, cell_phone: cell, email: email })
     const result = await request;
     console.log('🚀 - data saved to the database', result);
-    };
+    
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => console.error('getDb not implemented');
@@ -30,7 +30,7 @@ const jateDb = await openDB('jate', 1);
     const request = store.add({ name: name, home_phone: home, cell_phone: cell, email: email })
     const result = await request;
     console.log('🚀 - data saved to the database', result);
-    };
+   
 
 
 initdb();
